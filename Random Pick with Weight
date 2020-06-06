@@ -1,0 +1,20 @@
+class Solution {
+    vector<int> w;
+    vector<int> cumulative_sum;
+public:
+    Solution(vector<int>& w) {
+        
+        int sum = 0;
+        for (int x: w) {
+            this->w.push_back(x);
+            sum += x;
+            cumulative_sum.push_back(sum);
+        }        
+    }
+    
+    int pickIndex() {
+        int rand_no = rand() % cumulative_sum[cumulative_sum.size()-1];
+        return upper_bound(cumulative_sum.begin(), cumulative_sum.end(), rand_no) - cumulative_sum.begin();
+    }
+};
+
