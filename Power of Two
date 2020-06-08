@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        
+        long mask = 1;
+        while (mask < n)
+            mask = mask << 1;
+        if (mask == n)
+            return true;
+        else 
+            return false;
+    }
+};
